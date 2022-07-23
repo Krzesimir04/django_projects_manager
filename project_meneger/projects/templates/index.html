@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>{% block title %}Projects{% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+    <div class="content">
+        <div class="button"><a href="{% url 'add' %}">Add new project</a></div>
+        {% for project in object_list %}
+            <div class="project">
+                <h3>{{project.name}}</h3>
+                <p> {{project.describtion }}</p>
+                <p>deadline: {{ project.deadline }}, workers: {% for worker in project.workers.all %}{{ worker }} {% endfor %}</p>
+                <br>
+                <a href="{% url 'delete' project.id %}">Delete</a>
+                <a href="{% url 'edit' project.id %}">Edit</a>
+                <p></p>
+                
+            </div> 
+        {% endfor %}
+    </div>
+    {% endblock %}
+<footer>&copy Krzesimir Makowski 2022</footer>
+</body>
+</html>
