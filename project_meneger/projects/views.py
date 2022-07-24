@@ -17,7 +17,8 @@ def edit(request,pk):
             Project.objects.filter(id=pk).update(describtion=form.cleaned_data.get('describtion'), name=form.cleaned_data.get('name'), deadline=form.cleaned_data.get('deadline'))
             return redirect('/')
     elif request.method=='GET':
-        form=Edit_form()
+        project=Project.objects.get(id=pk)
+        form=Edit_form(instance=project)
         return render(request, 'edit.html', {'form':form})
     
 def add(request):
