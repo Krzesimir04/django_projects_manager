@@ -16,13 +16,18 @@ def post_data(request,pk):
     serializer=Project_Serializer(instance=project,data=request.data)
     if serializer.is_valid():
         serializer.save()
+    else:
+        return Response(serializer.errors)
     return Response(serializer.data)
+
 
 @api_view(['PUT'])
 def put_data(request):
     serializer=Project_Serializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
+    else:
+        return Response(serializer.errors)
     return Response(serializer.data)
 
 @api_view(['DELETE'])
