@@ -1,0 +1,4 @@
+Prosty projekt do dodawania zadań i przypisywania ich do danych urzytkowników.
+
+Projekt ten stworzyłem po to aby przypomnieć sobie django REST framework i stworzyć proste api i walidatory.
+Przy okazji utrwaliłem sobie podstawowe zadania jakie najczęściej się wykonuje (CRUD) i oswoiłem się z relacją M2M.
